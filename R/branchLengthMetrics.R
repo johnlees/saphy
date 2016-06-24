@@ -36,7 +36,7 @@ branchLengthMetrics <- function(tree) {
   {
     shap_dists <- sample(distances, size = 400)
   }
-  ls$clustsShapiro <- shapiro.test(shap_dists)$statistic
+  ls$clustsShapiro <- as.numeric(shapiro.test(shap_dists)$statistic)
 
   # Larger for positive skew -> close tips; 1 for symmetric -> equally distant tips
   quantiles <- quantile(distances, probs = c(0.25,0.5,0.75))
